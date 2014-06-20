@@ -1,0 +1,21 @@
+{
+  "name": "hoconfig-js",
+  "description": "optimized object configuration for human reading and typing",
+  "homepage": "https://github.com/mingqi/hoconfig-js",
+  "keywords": [
+    "config"
+  ],
+  "author": "Mingqi Shao <shaomq@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mingqi/hoconfig-js.git"
+  },
+  "main": "hoconfig.js",
+  "version": "0.1",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.githubusercontent.com/mingqi/hoconfig-js/master/LICENSE"
+    }
+  ]
+}

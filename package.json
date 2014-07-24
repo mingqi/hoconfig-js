@@ -11,7 +11,7 @@
     "url": "https://github.com/mingqi/hoconfig-js.git"
   },
   "main": "hoconfig.js",
-  "version": "0.1",
+  "version": "0.1.1",
   "licenses": [
     {
       "type": "MIT",

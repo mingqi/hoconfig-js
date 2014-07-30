@@ -26,6 +26,8 @@ address :  {                # - this is recursive object
     city : beijing
   }
 
+singleQuotaString : 'this is "hoconfig" and escape \ is \'
+doubleQuotaString : "this is 'hoconfig' and escape \ is \"
 ```
 
 # install

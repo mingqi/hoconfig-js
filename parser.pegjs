@@ -121,40 +121,10 @@ identifier "identifier"
   = name:[a-zA-Z0-9_.-]+ {return name.join("")}
 
 doubleQuotaChar
-  = [^"\\]
-  / escape
-    sequence:(
-        '"'
-      / "\\"
-      / "/"
-      / "b" { return "\b"; }
-      / "f" { return "\f"; }
-      / "n" { return "\n"; }
-      / "r" { return "\r"; }
-      / "t" { return "\t"; }
-      / "u" digits:$(HEXDIG HEXDIG HEXDIG HEXDIG) {
-          return String.fromCharCode(parseInt(digits, 16));
-        }
-    )
-    { return sequence; }
+  = [^"]
 
 singleQuotaChar
-  = [^'\\]
-  / escape
-    sequence:(
-        "'"
-      / "\\"
-      / "/"
-      / "b" { return "\b"; }
-      / "f" { return "\f"; }
-      / "n" { return "\n"; }
-      / "r" { return "\r"; }
-      / "t" { return "\t"; }
-      / "u" digits:$(HEXDIG HEXDIG HEXDIG HEXDIG) {
-          return String.fromCharCode(parseInt(digits, 16));
-        }
-    )
-    { return sequence; }
+  = [^']
 
 doubleQuotation = '"'
 singleQuotation = "'"

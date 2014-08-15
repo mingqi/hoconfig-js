@@ -69,13 +69,11 @@ innerObject = beginObject object:object endObject {return object}
 /* ----- Values ----- */
 
 value
-  = number
-  / false
-  / true
-  / null
-  / string
+  = string
   / innerObject
   / array
+
+
 
 false = "false" { return false; }
 null  = "null"  { return null;  }
@@ -115,10 +113,32 @@ array
 string "string"
   = doubleQuotation chars:doubleQuotaChar* doubleQuotation { return chars.join(""); }
   / singleQuotation chars:singleQuotaChar* singleQuotation { return chars.join(""); }
-  / identifier 
+  / autoParseString 
+
+autoParseString "automatically parse string"
+  = name:[^="_':{}\[\]\t\n\r #,]+ 
+  {
+    literal = name.join("")
+    if(!isNaN(literal)){
+      return parseFloat(literal) 
+    }
+
+    if(literal.toLowerCase() == 'false'){
+      return false
+    }
+    if(literal.toLowerCase() == 'true'){
+      return true
+    }
+    if(literal.toLowerCase() == 'null'){
+      return null
+    }
+
+    return literal;
+  }
 
 identifier "identifier"
   = name:[a-zA-Z0-9_.-]+ {return name.join("")}
+
 
 doubleQuotaChar
   = [^"]

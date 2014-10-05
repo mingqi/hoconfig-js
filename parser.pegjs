@@ -116,7 +116,7 @@ string "string"
   / autoParseString 
 
 autoParseString "automatically parse string"
-  = name:[^="_':{}\[\]\t\n\r #,]+ 
+  = name:[^="':{}\[\]\t\n\r #,]+ 
   {
     literal = name.join("")
     if(!isNaN(literal)){

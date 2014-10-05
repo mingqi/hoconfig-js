@@ -123,8 +123,8 @@ module.exports = (function() {
         peg$c79 = { type: "other", description: "string" },
         peg$c80 = function(chars) { return chars.join(""); },
         peg$c81 = { type: "other", description: "automatically parse string" },
-        peg$c82 = /^[^="_':{}[\]\t\n\r #,]/,
-        peg$c83 = { type: "class", value: "[^=\"_':{}[\\]\\t\\n\\r #,]", description: "[^=\"_':{}[\\]\\t\\n\\r #,]" },
+        peg$c82 = /^[^="':{}[\]\t\n\r #,]/,
+        peg$c83 = { type: "class", value: "[^=\"':{}[\\]\\t\\n\\r #,]", description: "[^=\"':{}[\\]\\t\\n\\r #,]" },
         peg$c84 = function(name) {
             literal = name.join("")
             if(!isNaN(literal)){

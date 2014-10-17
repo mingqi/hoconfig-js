@@ -1,5 +1,19 @@
 var parser = require('./parser')
 var fs = require('fs')
+var _ = require('underscore')
+
+function smart 
+
+function smart (obj) {
+  if(_.isObject(obj)){
+    
+  }else if (_.isArray(obj)){
+
+  }else{
+    
+  }
+
+}
 
 module.exports = hoconfig = function (config) {
   var content = null
@@ -12,12 +26,12 @@ module.exports = hoconfig = function (config) {
   }else if( config instanceof Buffer ){
     content = config.toString()
   }else{
-    throw Error("input config is illegal, it must be a string, file path or Buffer")
+    throw new Error("input config is illegal, it must be a string, file path or Buffer")
   }
 
   try{
     return parser.parse(content)
   }catch( e ){
-    throw Error(e.message+", line:"+e.line+",column:"+e.column)
+    throw new Error(e.message+", line:"+e.line+",column:"+e.column)
   }
 }

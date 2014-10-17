@@ -119,20 +119,19 @@ autoParseString "automatically parse string"
   = name:[^="':{}\[\]\t\n\r #,]+ 
   {
     literal = name.join("")
-    if(!isNaN(literal)){
-      return parseFloat(literal) 
-    }
+    // if(!isNaN(literal)){
+    //   return parseFloat(literal) 
+    // }
 
-    if(literal.toLowerCase() == 'false'){
-      return false
-    }
-    if(literal.toLowerCase() == 'true'){
-      return true
-    }
-    if(literal.toLowerCase() == 'null'){
-      return null
-    }
-
+    // if(literal.toLowerCase() == 'false'){
+    //   return false
+    // }
+    // if(literal.toLowerCase() == 'true'){
+    //   return true
+    // }
+    // if(literal.toLowerCase() == 'null'){
+    //   return null
+    // }
     return literal;
   }
 

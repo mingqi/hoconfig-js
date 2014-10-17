@@ -10,8 +10,8 @@
     "type": "git",
     "url": "https://github.com/mingqi/hoconfig-js.git"
   },
-  "main": "hoconfig.js",
-  "version": "0.1.5",
+  "main": "./lib/hoconfig.js",
+  "version": "0.1.11",
   "dependencies" : {
     "underscore" : "*",
     "humanable" : "*"

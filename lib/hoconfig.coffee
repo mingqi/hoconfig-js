@@ -32,20 +32,26 @@ to_duration = (str) ->
 smart = (obj) ->
   result = null
   switch
-    when us.isObject(obj)
-      result = {}
-      us.pairs(obj).map ([key, value]) ->
-        result[key] = smart(value)
 
     when us.isArray obj 
       result = []
       for a in obj
         result.push smart(a)
+    when us.isObject(obj)
+      ## object must behand array because array is also a object
+      result = {}
+      us.pairs(obj).map ([key, value]) ->
+        result[key] = smart(value)
+
 
     when us.isString obj
-      result = to_boolean(obj) or to_float(obj) or to_size(obj) or to_duration(obj) or obj
+      if obj.toLowerCase() == 'false'
+        return false
+      if obj.toLowerCase() == 'true'
+        return true
 
-  console.log obj, result
+      result = to_float(obj) or to_size(obj) or to_duration(obj) or obj
+
   return result
 
 

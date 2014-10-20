@@ -3,6 +3,13 @@ fs = require 'fs'
 us = require 'underscore'
 Humanable = require 'humanable'
 
+find = (coll, fn) ->
+  for item in coll
+    result = fn(item)
+    return result if result?
+  return null
+
+
 to_boolean = (str) ->
   switch str.toLowerCase()
     when "true" then true
@@ -43,14 +50,15 @@ smart = (obj) ->
       us.pairs(obj).map ([key, value]) ->
         result[key] = smart(value)
 
-
     when us.isString obj
       if obj.toLowerCase() == 'false'
         return false
       if obj.toLowerCase() == 'true'
         return true
 
-      result = to_float(obj) or to_size(obj) or to_duration(obj) or obj
+      result = find [to_boolean, to_float, to_size, to_duration], (fn) ->
+        fn(obj)
+      result ?= obj
 
   return result
 
